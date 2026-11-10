@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <title>CineWave — Movies & Series</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="authScreen" class="auth-screen">
+    <div class="auth-shade"></div>
+    <header class="auth-brand"><span class="brand-mark">C</span> CINEWAVE</header>
+    <section class="auth-card">
+      <h1 id="authTitle">Sign in</h1>
+      <p class="muted">Your next favorite story starts here.</p>
+      <form id="authForm">
+        <div id="nameField" class="hidden"><input id="nameInput" type="text" placeholder="Your name" autocomplete="name"></div>
+        <input id="emailInput" type="email" placeholder="Email address" autocomplete="email" required>
+        <input id="passwordInput" type="password" placeholder="Password (8+ characters)" autocomplete="current-password" required>
+        <button class="primary-btn full" type="submit" id="authSubmit">Sign in</button>
+        <p id="authError" class="error" role="alert"></p>
+      </form>
+      <p class="auth-switch"><span id="switchText">New to CineWave?</span> <button id="switchAuth" class="text-btn">Create an account</button></p>
+      <small class="muted">Demo project — do not use a real password.</small>
+    </section>
+  </div>
+
+  <main id="app" class="hidden">
+    <nav class="navbar">
+      <a class="brand" href="#"><span class="brand-mark">C</span> CINEWAVE</a>
+      <div class="nav-links">
+        <a href="#home">Home</a><a href="#movies">Movies</a><a href="#series">Series</a><a href="#vip">VIP</a>
+      </div>
+      <div class="nav-actions">
+        <label class="search-wrap"><span>⌕</span><input id="searchInput" placeholder="Search titles..." aria-label="Search titles"></label>
+        <button id="profileButton" class="profile-chip" aria-label="Open profile"><span id="avatar">G</span><span id="navName">Guest</span>⌄</button>
+      </div>
+    </nav>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">CINEWAVE ORIGINAL</span>
+        <h1>THE LAST<br><em>HORIZON</em></h1>
+        <p class="hero-meta">2026 <span>•</span> Sci-Fi <span>•</span> 2h 08m <span class="quality">4K UHD</span></p>
+        <p class="hero-copy">Beyond the edge of the known world, one crew must decide what is worth bringing home.</p>
+        <div class="hero-buttons"><button class="primary-btn" id="heroPlay">▶ Play</button><button class="secondary-btn" id="heroInfo">ⓘ More info</button></div>
+      </div>
+      <div class="hero-gradient"></div>
+      <div class="hero-art" aria-hidden="true"></div>
+      <div class="hero-bottom-fade"></div>
+    </section>
+
+    <section class="content-section" id="movies">
+      <div class="section-heading"><div><h2>Trending now</h2><p class="muted">Popular picks for your next movie night</p></div><span class="section-note">UPDATED WEEKLY</span></div>
+      <div id="trendingRow" class="poster-row"></div>
+    </section>
+    <section class="content-section" id="series">
+      <div class="section-heading"><div><h2>Free to watch</h2><p class="muted">Enjoy these titles with a free account</p></div><span class="section-note">FREE</span></div>
+      <div id="freeRow" class="poster-row"></div>
+    </section>
+    <section class="content-section" id="vip">
+      <div class="section-heading"><div><h2>VIP premieres</h2><p class="muted">Exclusive stories for VIP members</p></div><span class="vip-label">✦ VIP ACCESS</span></div>
+      <div id="vipRow" class="poster-row"></div>
+    </section>
+    <section class="vip-banner">
+      <div><span class="vip-label">✦ CINEWAVE VIP</span><h2>Go beyond the ordinary.</h2><p>Unlock the VIP collection, exclusive premieres and an ad-free experience.</p></div>
+      <button class="primary-btn" id="upgradeButton">Explore VIP</button>
+    </section>
+    <footer><span class="brand"><span class="brand-mark">C</span> CINEWAVE</span><span>Demo streaming interface · Use licensed content only</span><a href="#home">Back to top ↑</a></footer>
+  </main>
+
+  <div id="profileMenu" class="profile-menu hidden">
+    <div class="profile-summary"><div class="avatar-large" id="menuAvatar">G</div><div><strong id="menuName">Guest</strong><small id="menuPlan">Free plan</small></div></div>
+    <button id="editProfile">Edit profile</button><button id="menuVip">VIP membership</button><button id="logoutButton">Sign out</button>
+  </div>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <section class="modal-card"><button class="close-btn" id="closeModal" aria-label="Close">×</button><div id="modalArt" class="modal-art"></div><div class="modal-body"><span id="modalTag" class="eyebrow">FEATURED</span><h2 id="modalTitle">Title</h2><p id="modalMeta" class="muted"></p><p id="modalDescription"></p><div class="modal-actions"><button id="modalPlay" class="primary-btn">▶ Play preview</button><button id="modalSave" class="secondary-btn">＋ My list</button></div><p id="modalMessage" class="muted tiny"></p></div></section>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
